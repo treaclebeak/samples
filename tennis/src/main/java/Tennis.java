@@ -3,6 +3,7 @@ class Tennis {
         DOUBLE_FAULT(false), OUT(false), WINNER(true);
 
         boolean point;
+
         Action(boolean playersPoint) {
             this.point = playersPoint;
         }

@@ -3,7 +3,8 @@ class Score {
     private int[][] sets = new int[3][2];
     private int currentSet = 0;
 
-    private Score() {}
+    private Score() {
+    }
 
     static Score startingScore() {
         return new Score();
@@ -11,7 +12,7 @@ class Score {
 
     static Score processEvent(Tennis.Event e) {
         Score result = new Score();
-        ++result.gamePoints[e.action.point ? e.player : (e.player+1) % 2]; //who does the point belong to?
+        ++result.gamePoints[e.action.point ? e.player : (e.player + 1) % 2]; //who does the point belong to?
         return result;
     }
 
@@ -33,7 +34,7 @@ class Score {
         gamePoints[1] += s.getGamePoints()[1];
         if (gameOver()) {
             int setWinner = gamePoints[0] > gamePoints[1] ? 0 : 1;
-            sets[getCurrentSet()][setWinner] +=1;
+            sets[getCurrentSet()][setWinner] += 1;
             gamePoints[0] = gamePoints[1] = 0;
             if (setOver()) {
                 currentSet++;
@@ -46,7 +47,7 @@ class Score {
     }
 
     private boolean setOver() {
-        return sets[getCurrentSet()][0] ==6 || sets[getCurrentSet()][1] ==6;
+        return sets[getCurrentSet()][0] == 6 || sets[getCurrentSet()][1] == 6;
     }
 
 
@@ -77,8 +78,8 @@ class Score {
 
             }
         } else {
-            p1Points = p1Points < 3 ?  p1Points*15 : 40;
-            p2Points = p2Points < 3 ?  p2Points*15 : 40;
+            p1Points = p1Points < 3 ? p1Points * 15 : 40;
+            p2Points = p2Points < 3 ? p2Points * 15 : 40;
             result = p1Points + " " + p2Points;
         }
         return result;

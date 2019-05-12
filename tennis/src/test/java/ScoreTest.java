@@ -12,12 +12,12 @@ public class ScoreTest {
     public void testAccumulateForEachPlayer() {
         Score score = Score.startingScore();
         Score addend = mock(Score.class);
-        given(addend.getGamePoints()).willReturn(new int[] {1,0});
+        given(addend.getGamePoints()).willReturn(new int[]{1, 0});
         Score result = score.accumulate(addend);
-        given(addend.getGamePoints()).willReturn(new int[] {0,1});
+        given(addend.getGamePoints()).willReturn(new int[]{0, 1});
         result = score.accumulate(addend);
-        assertThat(result.getGamePoints()[0],is(equalTo(1)));
-        assertThat(result.getGamePoints()[1],is(equalTo(1)));
+        assertThat(result.getGamePoints()[0], is(equalTo(1)));
+        assertThat(result.getGamePoints()[1], is(equalTo(1)));
 
     }
 
@@ -25,12 +25,12 @@ public class ScoreTest {
     public void testAccumulateGames() {
         Score score = Score.startingScore();
         Score addend = mock(Score.class);
-        given(addend.getGamePoints()).willReturn(new int[] {3,5});
+        given(addend.getGamePoints()).willReturn(new int[]{3, 5});
         Score result = score.accumulate(addend);
-        assertThat(result.getGamePoints()[0],is(equalTo(0)));
-        assertThat(result.getGamePoints()[1],is(equalTo(0)));
-        assertThat(result.getSets()[result.getCurrentSet()][0],is(equalTo(0)));
-        assertThat(result.getSets()[result.getCurrentSet()][1],is(equalTo(1)));
+        assertThat(result.getGamePoints()[0], is(equalTo(0)));
+        assertThat(result.getGamePoints()[1], is(equalTo(0)));
+        assertThat(result.getSets()[result.getCurrentSet()][0], is(equalTo(0)));
+        assertThat(result.getSets()[result.getCurrentSet()][1], is(equalTo(1)));
     }
 
     @Test
@@ -42,9 +42,9 @@ public class ScoreTest {
             given(addend.getGamePoints()).willReturn(new int[]{3, 5});
             result = score.accumulate(addend);
         }
-        assertThat(result.getSets()[0][0],is(equalTo(0)));
-        assertThat(result.getSets()[0][1],is(equalTo(6)));
-        assertThat(result.getCurrentSet(),is(equalTo(1)));
+        assertThat(result.getSets()[0][0], is(equalTo(0)));
+        assertThat(result.getSets()[0][1], is(equalTo(6)));
+        assertThat(result.getCurrentSet(), is(equalTo(1)));
     }
 
 }

@@ -1,8 +1,3 @@
-import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
-
 public class BinarySearchTree {
 
     class Node {
@@ -42,16 +37,16 @@ public class BinarySearchTree {
     }
 
     void dft() {
-        dft(root,"|");
+        dft(root, "|");
     }
 
     void dft(Node n, String dir) {
         if (n == null) {
             return;
         }
-        System.out.println(dir+n.val);
-        dft(n.left,n.val+"/");
-        dft(n.right,n.val+"\\");
+        System.out.println(dir + n.val);
+        dft(n.left, n.val + "/");
+        dft(n.right, n.val + "\\");
 
     }
 
@@ -66,7 +61,7 @@ public class BinarySearchTree {
         }
         int leftDepth = depth(n.left);
         int rightDepth = depth(n.right);
-        return Math.max(leftDepth,rightDepth) + 1;
+        return Math.max(leftDepth, rightDepth) + 1;
 
     }
 
@@ -75,7 +70,7 @@ public class BinarySearchTree {
     }
 
     int[] largestK(int k) {
-        int[] kList = new int[] {Integer.MIN_VALUE,Integer.MIN_VALUE,Integer.MIN_VALUE};
+        int[] kList = new int[]{Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE};
         largestK(root, kList);
         return kList;
     }
@@ -84,7 +79,7 @@ public class BinarySearchTree {
         if (n == null) {
             return;
         }
-        largestK(n.right,kList);
+        largestK(n.right, kList);
         for (int i = 0; i < kList.length; i++) {
             if (n.val > kList[i]) {
                 kList[i] = n.val;
@@ -106,7 +101,7 @@ public class BinarySearchTree {
     }
 
     public void pivot(Node n) {
-        if(n == null) {
+        if (n == null) {
             return;
         }
         pivot(n.left);
@@ -121,7 +116,7 @@ public class BinarySearchTree {
 
     boolean lockNode(int target) {
         Node[] holder = new Node[1];
-        boolean ancestorsLocked = checkAncestorLocksAndFindNode(target,root,holder);
+        boolean ancestorsLocked = checkAncestorLocksAndFindNode(target, root, holder);
         boolean childrenLocked = checkChildLocks(holder[0]);
         if (!ancestorsLocked && !childrenLocked) {
             holder[0].locked = true;
@@ -136,9 +131,9 @@ public class BinarySearchTree {
         }
         boolean locked;
         if (target <= current.val) {
-            locked = checkAncestorLocksAndFindNode(target,current.left,holder);
+            locked = checkAncestorLocksAndFindNode(target, current.left, holder);
         } else {
-            locked = checkAncestorLocksAndFindNode(target,current.right,holder);
+            locked = checkAncestorLocksAndFindNode(target, current.right, holder);
         }
         return locked && current.locked;
     }
@@ -152,27 +147,5 @@ public class BinarySearchTree {
         return lockedLeft && lockedRight;
     }
 
-    @Test
-    public void test() {
-        BinarySearchTree b = new BinarySearchTree();
-        b.add(6,true);
-        b.add(2,true);
-        b.add(7,true);
-        b.add(1,true);
-        b.add(12,true);
-        b.add(3,true);
-        b.add(4,true);
-        b.add(5,true);
-        b.add(15,false);
-        b.dft();
-        b.pivot();
-        b.dft();
-//        Node[] holder = new Node[1];
-//        boolean ancestorsLocked = b.checkAncestorLocksAndFindNode(4,b.root,holder);
-//        boolean childrenLocked = b.checkChildLocks(holder[0]);
-//        assertThat(ancestorsLocked,equalTo(true));
-//        assertThat(childrenLocked,equalTo(true));
-
-    }
 
 }
