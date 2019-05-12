@@ -18,6 +18,7 @@
         <module>arrayinversions</module>
         <module>queuechaos</module>
         <module>applesandoranges</module>
+        <module>circulararrayrotation</module>
     </modules>
 
     <properties>
