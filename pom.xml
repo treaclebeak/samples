@@ -17,6 +17,7 @@
         <module>binarysearchtree</module>
         <module>arrayinversions</module>
         <module>queuechaos</module>
+        <module>applesandoranges</module>
     </modules>
 
     <properties>

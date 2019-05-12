@@ -17,9 +17,5 @@ public class CompareTripletsTest {
         assertThat(result.get(1), equalTo(1));
     }
 
-    @Test
-    public void testApplesAndOranges() {
-        CompareTriplets.countApplesAndOranges(7, 11, 5, 15, new int[]{-2, 2, 1}, new int[]{5, -6});
-    }
 
 }

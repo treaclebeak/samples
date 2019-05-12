@@ -1,12 +1,5 @@
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.IntStream;
 
 import static org.hamcrest.CoreMatchers.equalTo;

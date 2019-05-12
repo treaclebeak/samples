@@ -37,24 +37,4 @@ public class CompareTriplets {
     }
 
 
-
-    static void countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges) {
-        int appleCount = 0;
-        int orangeCount = 0;
-        for (int apple : apples) {
-            if (a + apple >= s && a + apple <= t) {
-                ++appleCount;
-            }
-        }
-        System.out.println(appleCount);
-        for (int orange : oranges) {
-            if (b + orange >= s)
-                if (b + orange <= t) {
-                    ++orangeCount;
-                }
-        }
-        System.out.println(orangeCount);
-
-    }
-
 }
